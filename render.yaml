@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: informatika-adventure
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: TEACHER_PIN
+        value: "020305"
+    healthCheckPath: /api/health

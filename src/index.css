@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  /* Layer 1: Primitives */
+  --navy-950: #0b1120;
+  --navy-900: #111c33;
+  --navy-800: #1a2744;
+  --navy-700: #263759;
+  --blue-electric: #2563eb;
+  --blue-bright: #3b82f6;
+  --purple-accent: #7c3aed;
+  --red-team: #e11d48;
+  --red-bright: #fb7185;
+  --green-success: #10b981;
+  --yellow-reward: #f59e0b;
+
+  /* Layer 2: Semantic */
+  --bg-canvas: var(--navy-950);
+  --bg-surface: var(--navy-900);
+  --bg-elevated: var(--navy-800);
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --color-team1: var(--blue-electric);
+  --color-team2: var(--red-team);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-canvas);
+  color: #f8fafc;
+}
+
+.font-display {
+  font-family: 'Nunito', 'Plus Jakarta Sans', sans-serif;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes gachaShake {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-7deg) scale(1.04); }
+  40% { transform: rotate(7deg) scale(1.06); }
+  60% { transform: rotate(-5deg) scale(1.04); }
+  80% { transform: rotate(5deg) scale(1.02); }
+}
+
+@keyframes diceTumble {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.12); }
+  50% { transform: rotate(180deg) scale(0.95); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.92) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 2.8s ease-in-out infinite;
+}
+
+.animate-gacha-shake {
+  animation: gachaShake 0.45s ease-in-out infinite;
+}
+
+.animate-dice-tumble {
+  animation: diceTumble 0.45s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-gacha-shake,
+  .animate-dice-tumble,
+  .animate-pop-in,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+    transition: none !important;
+  }
+}
