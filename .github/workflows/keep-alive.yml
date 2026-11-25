@@ -1,0 +1,14 @@
+name: Keep Free Backend Awake
+
+on:
+  schedule:
+    - cron: '*/14 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: ${{ vars.APP_HEALTH_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /api/health
+        run: curl -fsS "${{ vars.APP_HEALTH_URL }}"
